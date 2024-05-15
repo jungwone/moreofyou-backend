@@ -13,6 +13,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model AdminUser {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  name     String
+  approved Boolean @default(false)
+}
+
 // model Post {
 //   id        Int      @id @default(autoincrement())
 //   createdAt DateTime @default(now())
@@ -38,11 +46,3 @@ datasource db {
 //   posts   Post[]
 //   profile Profile?
 // }
-
-model AdminUser {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  name     String
-  approved Boolean @default(false)
-}
